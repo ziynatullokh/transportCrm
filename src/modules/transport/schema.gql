@@ -1,0 +1,58 @@
+type Mutation {
+    addTransport(branch: String!, model: Model!, color: Color!, file: Upload!): Response!
+    changeTransport(transport_id: Int!, branch: String, color: Color, file: Upload): Response!
+    deleteTransport( transport_id: Int!): Response!
+}
+
+type Query {
+    transports(
+        pagination: Pagination
+        search: String
+        sort: Sort
+    ): resTransport
+}
+
+type resTransport{
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: [Transport]!
+}
+
+type Transport {
+    transport_id: Int!
+    staff: String
+    model: String
+    color: String
+    branch: String
+    transport_img: String
+}
+
+scalar Upload
+
+enum Model {
+    Nexia
+    Damas
+    Nexia_2
+    Nexia_3
+    Gentra
+    Captiva
+    Tiko
+    Matiz
+    Lacetti
+    Cobalt
+}
+
+enum Color {
+    Oq
+    Qora
+    Qizil
+    Kulrang
+    Sariq
+}
+type Response {
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: String!
+}

@@ -1,0 +1,31 @@
+{
+  "name": "crm",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon -e * src/server.js",
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "imports": {
+    "#config/*": "./src/config/*.js",
+    "#pg": "./src/config/db.js",
+    "#utils/*": "./src/utils/*.js"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^8.3.11",
+    "apollo-server-core": "^3.7.0",
+    "apollo-server-express": "^3.7.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "graphql-upload": "^13.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "pg": "^8.7.3",
+    "stream": "^0.0.2"
+  }
+}

@@ -1,0 +1,44 @@
+type Mutation {
+    register(username: String! password: String!  repeat_password: String! birthdate: String! gender: Gender! branch: String! ): Response!
+    login(username: String! password: String!): Response!
+}
+
+scalar DateTime
+scalar DateTime1
+
+enum Gender{
+    Erkak
+    Ayol
+}
+
+type Query {
+    staffs(
+        pagination: Pagination
+        search: String
+        sort: Sort
+    ): staffResponseStatus!
+}
+
+type staffResponseStatus {
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: [staffRespons]!
+}
+
+
+type staffRespons {
+    userid: Int!
+    username: String!
+    birthdate: DateTime
+    gender: Gender!
+    branch: String!
+    registertime: DateTime1
+}
+
+type Response {
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: String!
+}

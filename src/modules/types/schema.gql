@@ -1,0 +1,16 @@
+## pagination input
+input Pagination {
+    page: Int
+    limit: Int
+}
+
+input Sort {
+    byDate: SortOptions
+    byName: SortOptions
+}
+
+## enum types
+enum SortOptions {
+    toLargest
+    toSmallest
+}

@@ -1,0 +1,30 @@
+type Mutation {
+    addBranch(branchname: String!, address: String!): Response!
+    changeBranch(branch_id: Int!, branchname: String, address: String!): Response!
+    deleteBranch( branch_id: Int!): Response!
+}
+
+type Query {
+    branches: resBranch
+}
+
+type resBranch{
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: [Branch]!
+}
+
+type Branch {
+    branch_id: Int!
+    branch_name: String
+    branch_address: String
+}
+
+
+type Response {
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: String!
+}

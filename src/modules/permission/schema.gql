@@ -1,0 +1,46 @@
+type Mutation {
+    addPermission(user_id: Int!, branch: String, module: Modul!, permission: Permission! ): Response
+    deletePermission(user_id: Int!, branch: String, module: Modul!, permission: Permission!): Response!
+}
+
+type Query {
+    ownPermissions : perResponse!
+    allPermissions(user_id: Int) : perResponse!
+}
+
+type perResponse {
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: [permissonResponse!]!
+}
+
+type permissonResponse{
+    userid: Int!
+    username: String!
+    modul: String!
+    create: Boolean!
+    read: Boolean!
+    delete: Boolean!
+    update: Boolean!
+}
+
+enum Modul {
+    Transport
+    Branch
+    Permission
+}
+
+enum Permission{
+    Create
+    Read
+    Delete
+    Update
+}
+
+type Response {
+    status: Int!
+    success: Boolean!
+    message: String!
+    data: String!
+}
